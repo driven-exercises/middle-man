@@ -1,9 +1,15 @@
 import bcrypt from 'bcrypt';
 import { v4 as uuid } from 'uuid';
 import db from '../db.js';
+import userSchema from '../schemas/userSchema.js';
 
 export async function signUp(req, res) {
   const user = req.body;
+
+  const validation = userSchema.validate(user);
+  if (validation.error) {
+    return res.sendStatus(422);
+  }
 
   const passwordHash = bcrypt.hashSync(user.password, 10);
 

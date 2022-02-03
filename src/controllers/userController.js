@@ -1,4 +1,5 @@
 import db from "../db.js";
+import userSchema from "../schemas/userSchema.js";
 
 export async function getUser(req, res) {
   const { authorization } = req.headers;
@@ -25,6 +26,12 @@ export async function getUser(req, res) {
 
 export async function updateUser(req, res) {
   const newUser = req.body;
+
+  const validation = userSchema.validate(newUser);
+  if (validation.error) {
+    return res.sendStatus(422);
+  }
+
   const { authorization } = req.headers;
   const token = authorization?.replace('Bearer ', '')
 

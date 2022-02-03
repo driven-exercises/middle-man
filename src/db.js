@@ -6,5 +6,5 @@ const mongoClient = new MongoClient(process.env.MONGO_URI);
 
 await mongoClient.connect();
 
-const db = mongoClient.db("zana-hadid");
+const db = mongoClient.db("middle-man");
 export default db;
