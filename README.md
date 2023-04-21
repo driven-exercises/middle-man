@@ -11,4 +11,4 @@ Este código é aquele que valida os dados do body. Se não encontrar erros, con
 
 Remova esse trecho de código das funções signUp (`controllers/authController.js`) e updateUser (`controllers/userController.js`) e extraia para um **middleware**, fazendo as adaptações necessárias. 
 
-Crie o middleware numa pasta `middlewares` com o nome `schemaValidationMiddleware.js`
+Crie o middleware numa pasta `middlewares` com o nome `userSchemaValidationMiddleware.js`
